@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React starter app</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="../src/index.ts"></script>
+    <script>
+      window.loadRutter = function () {
+        Rutter.create({
+          dev: { openUrl: "http://localhost:4000" },
+          // eric prod public - 2a71f561-1154-4f88-88e6-e61647c7f97e
+          // eric sandbox public - sandbox_pk_d4b48f90-ff3b-456e-a8e2-1da7af1ab609
+          publicKey: "sandbox_pk_d4b48f90-ff3b-456e-a8e2-1da7af1ab609",
+          onSuccess: function (token) {
+            console.log(token);
+          },
+        }).open();
+      };
+    </script>
+    <p>Use dev console to call Rutter.create().open()</p>
+    <p>
+      If javascript not hot reloading try CMD + shift + r to hard reload and
+      usually works.
+    </p>
+    <p>
+      Run in console: Rutter.create({ publicKey:
+      "2a71f561-1154-4f88-88e6-e61647c7f97e", onSuccess: function(token) {
+      console.log(token)}, dev: { openUrl: "http://localhost:4000" }}).open()
+    </p>
+    <button style="height: 100px; width: 100px" onclick="loadRutter()">
+      click me
+    </button>
+    <!-- <script src="index.js"></script> -->
+    <!-- <script src="../dist/bundle.js"></script> -->
+  </body>
+</html>
